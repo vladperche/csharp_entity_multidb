@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Entity.MultiDB.API/Entity.MultiDB.API.csproj" />
+  <Project Path="Entity.MultiDB.Entities/Entity.MultiDB.Entities.csproj" />
+</Solution>

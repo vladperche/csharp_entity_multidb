@@ -1,0 +1,44 @@
+services:
+  db:
+    image: postgres:18.6
+    container_name: postgres
+    hostname: ${POSTGRES_HOST}
+    ports:
+      - "${POSTGRES_PORT_EXT}:${POSTGRES_PORT_INT}"
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    volumes:
+      - ./dockerdata/postgres:/var/lib/postgresql
+    networks:
+      - entity-network
+    restart:
+      always
+
+  presentation:
+    build:
+      context: ./srcBackend
+      dockerfile: Dockerfile
+    container_name: entity-presentation
+    hostname: entity-presentation
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+      - POSTGRES_HOST=${POSTGRES_HOST}
+      - POSTGRES_PORT=${POSTGRES_PORT_EXT}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    ports:
+      - "${API_HTTP_PORT_EXT}:${API_HTTP_PORT_INT}"
+    volumes:
+      - ./dockerdata/presentation:/app/logs
+    networks:
+      - entity-network
+    restart:
+      always
+
+networks:
+  entity-network:
+    name: entity-network
+    driver: bridge

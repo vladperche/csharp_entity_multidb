@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<accessability>public</accessability>
+	<data id="a8aaacda-13c8-454a-86bc-4dfd8ff54250" name="HEALTH_CHECK_OK" xml:space="preserve">
+		<value>Service is running!</value>
+		<comment></comment>
+	</data>
+	<data id="1b5bc7c5-21a2-435c-b1f8-394450a82a2e" name="OK" xml:space="preserve">
+		<value>OK</value>
+		<comment></comment>
+	</data>
+</root>
