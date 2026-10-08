@@ -13,6 +13,12 @@ services:
       - ./dockerdata/postgres:/var/lib/postgresql
     networks:
       - entity-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready", "-U", "${POSTGRES_USER}", "-d", "${POSTGRES_DB}"]
+      interval: 1m30s
+      timeout: 30s
+      retries: 5
+      start_period: 10s
     restart:
       always
 
@@ -24,6 +30,7 @@ services:
     hostname: entity-presentation
     environment:
       - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+      - DATABASE_TYPE=${DATABASE_TYPE}
       - POSTGRES_HOST=${POSTGRES_HOST}
       - POSTGRES_PORT=${POSTGRES_PORT_EXT}
       - POSTGRES_USER=${POSTGRES_USER}
@@ -35,6 +42,9 @@ services:
       - ./dockerdata/presentation:/app/logs
     networks:
       - entity-network
+    depends_on:
+      db:
+        condition: service_healthy
     restart:
       always
 

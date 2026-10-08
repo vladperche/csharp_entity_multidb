@@ -1,12 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
 	<accessability>public</accessability>
+	<data id="b4ea7db7-0744-4db1-9fce-2aeba8e5e4c5" name="DATABASE_TYPE_UNSUPORTED" xml:space="preserve">
+		<value>Unsupported Database Type: {0}</value>
+		<comment></comment>
+	</data>
 	<data id="a8aaacda-13c8-454a-86bc-4dfd8ff54250" name="HEALTH_CHECK_OK" xml:space="preserve">
 		<value>Service is running!</value>
 		<comment></comment>
 	</data>
 	<data id="1b5bc7c5-21a2-435c-b1f8-394450a82a2e" name="OK" xml:space="preserve">
 		<value>OK</value>
+		<comment></comment>
+	</data>
+	<data id="ba88483f-fe34-44fd-ad02-3e6faa57fad6" name="POSTGRES_DB_EMPTY" xml:space="preserve">
+		<value>POSTGRES_DB is Empty</value>
+		<comment></comment>
+	</data>
+	<data id="a13aa42d-9815-4731-82c7-03fe1c4f2d58" name="POSTGRES_HOST_EMPTY" xml:space="preserve">
+		<value>POSTGRES_HOST is Empty</value>
+		<comment></comment>
+	</data>
+	<data id="56436dfc-9dc0-4942-bfa7-e34fe4f587da" name="POSTGRES_PASSWORD_EMPTY" xml:space="preserve">
+		<value>POSTGRES_PASSWORD is Empty</value>
+		<comment></comment>
+	</data>
+	<data id="f722cc6c-ffed-47e9-9893-523faad49bf2" name="POSTGRES_USERNAME_EMPTY" xml:space="preserve">
+		<value>POSTGRES_USERNAME is Empty</value>
 		<comment></comment>
 	</data>
 </root>

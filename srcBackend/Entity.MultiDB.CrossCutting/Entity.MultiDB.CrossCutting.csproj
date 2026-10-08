@@ -11,4 +11,9 @@
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="10.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Entity.MultiDB.Entities\Entity.MultiDB.Entities.csproj" />
+    <ProjectReference Include="..\Entity.MultiDB.Infrastructure\Entity.MultiDB.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

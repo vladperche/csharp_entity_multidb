@@ -57,12 +57,37 @@ namespace Entity.MultiDB.Entities.Resources {
 		/// <summary>
 		/// 
 		/// </summary>
+		public static string DATABASE_TYPE_UNSUPORTED => ResourceManager.GetString("DATABASE_TYPE_UNSUPORTED", resourceCulture);
+
+		/// <summary>
+		/// 
+		/// </summary>
 		public static string HEALTH_CHECK_OK => ResourceManager.GetString("HEALTH_CHECK_OK", resourceCulture);
 
 		/// <summary>
 		/// 
 		/// </summary>
 		public static string OK => ResourceManager.GetString("OK", resourceCulture);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public static string POSTGRES_DB_EMPTY => ResourceManager.GetString("POSTGRES_DB_EMPTY", resourceCulture);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public static string POSTGRES_HOST_EMPTY => ResourceManager.GetString("POSTGRES_HOST_EMPTY", resourceCulture);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public static string POSTGRES_PASSWORD_EMPTY => ResourceManager.GetString("POSTGRES_PASSWORD_EMPTY", resourceCulture);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public static string POSTGRES_USERNAME_EMPTY => ResourceManager.GetString("POSTGRES_USERNAME_EMPTY", resourceCulture);
 
 	}
 }
