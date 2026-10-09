@@ -8,7 +8,6 @@ Log.Logger = new LoggerConfiguration()
     .CreateLogger();
 
 var builder = WebApplication.CreateBuilder(args);
-
 builder.Services.AddDatabaseContext();
 
 // Add services to the container.
@@ -17,7 +16,11 @@ builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 
 var app = builder.Build();
-app.Services.MigrateDatabase();
+if (args.Contains("--migrate-only"))
+{
+    app.Services.MigrateDatabase();
+    return;
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

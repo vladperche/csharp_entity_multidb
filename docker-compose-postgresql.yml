@@ -22,6 +22,29 @@ services:
     restart:
       always
 
+  migration:
+    build:
+      context: ./srcBackend
+      dockerfile: Dockerfile.Migration
+    container_name: entity-migration
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+      - DATABASE_TYPE=${DATABASE_TYPE}
+      - POSTGRES_HOST=${POSTGRES_HOST}
+      - POSTGRES_PORT=${POSTGRES_PORT_EXT}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    volumes:
+      - ./dockerdata/migration:/app/logs
+    networks:
+      - entity-network
+    depends_on:
+      db:
+        condition: service_healthy
+    restart:
+      no
+
   presentation:
     build:
       context: ./srcBackend
@@ -43,8 +66,8 @@ services:
     networks:
       - entity-network
     depends_on:
-      db:
-        condition: service_healthy
+      migration:
+        condition: service_completed_successfully
     restart:
       always
 
