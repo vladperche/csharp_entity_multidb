@@ -16,11 +16,6 @@ builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 
 var app = builder.Build();
-if (args.Contains("--migrate-only"))
-{
-    app.Services.MigrateDatabase();
-    return;
-}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

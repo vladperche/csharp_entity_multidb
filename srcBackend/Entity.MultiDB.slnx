@@ -1,4 +1,7 @@
 <Solution>
   <Project Path="Entity.MultiDB.API/Entity.MultiDB.API.csproj" />
   <Project Path="Entity.MultiDB.Entities/Entity.MultiDB.Entities.csproj" />
+  <Project Path="Entity.MultiDB.CrossCutting/Entity.MultiDB.CrossCutting.csproj" />
+  <Project Path="Entity.MultiDB.Infrastructure/Entity.MultiDB.Infrastructure.csproj" />
+  <Project Path="Entity.MultiDB.Migration/Entity.MultiDB.Migration.csproj" />
 </Solution>

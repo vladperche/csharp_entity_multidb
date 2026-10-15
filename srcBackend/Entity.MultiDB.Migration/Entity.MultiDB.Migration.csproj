@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-Entity.MultiDB.Migration-0cfe2adb-5bbc-441e-857c-ce2241b995af</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.13" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.2" />
+    <PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="6.1.1" />
+    <PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Entity.MultiDB.CrossCutting\Entity.MultiDB.CrossCutting.csproj" />
+    <ProjectReference Include="..\Entity.MultiDB.Entities\Entity.MultiDB.Entities.csproj" />
+    <ProjectReference Include="..\Entity.MultiDB.Infrastructure\Entity.MultiDB.Infrastructure.csproj" />
+  </ItemGroup>
+</Project>

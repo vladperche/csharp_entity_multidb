@@ -10,8 +10,11 @@ public static class DatabaseExtension
 {
     public static void AddDatabaseContext(this IServiceCollection services)
     {
+        var envName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")?.ToLower();
         var databaseType = Environment.GetEnvironmentVariable("DATABASE_TYPE")?.ToLower();
-        Console.WriteLine($"Database Type: {databaseType}");
+
+        Console.WriteLine($"> Environment: {envName}");
+        Console.WriteLine($"> Database Type: {databaseType}");
         switch (databaseType)
         {
             case "postgresql":
@@ -54,14 +57,18 @@ public static class DatabaseExtension
 
     public static IServiceProvider MigrateDatabase(this IServiceProvider serviceProvider)
     {
+        Console.WriteLine("### MIGRATION ###");
         using var scope = serviceProvider.CreateScope();
 
         var databaseType = Environment.GetEnvironmentVariable("DATABASE_TYPE")?.ToLower();
+        Console.WriteLine($". Detected Database Type: {databaseType}");
+
         switch (databaseType)
         {
             case "postgresql":
+                Console.WriteLine(". Migrating for POSTGRESQL");
                 var dbContext = scope.ServiceProvider.GetRequiredService<ContextPostgreSQL>();
-                dbContext.Database.Migrate();
+                dbContext.Database.EnsureCreated();
                 break;
             default:
                 throw new InvalidOperationException(string.Format(Messages.DATABASE_TYPE_UNSUPORTED, databaseType));
